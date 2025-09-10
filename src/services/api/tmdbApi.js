@@ -16,7 +16,10 @@ export const tmdbApi = createApi({
     getTopRatedMovies: builder.query({
       query: () => "/movie/top_rated",
     }),
+    getTopRatedShows: builder.query({
+      query: () => "/tv/top_rated",
+    }),
   }),
 });
 
-export const { useGetTopRatedMoviesQuery } = tmdbApi;
+export const { useGetTopRatedMoviesQuery, useGetTopRatedShowsQuery } = tmdbApi;
