@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router";
 
 const IMG_BASE = "https://image.tmdb.org/t/p/w300";
 
@@ -43,11 +44,12 @@ const MoviesRow = ({ movies }) => {
       {/* Movie Row */}
       <div
         ref={sliderRef}
-        className="flex space-x-4 overflow-x-hidden scrollbar-hide scroll-smooth"
+        className="flex py-2 space-x-4 overflow-x-hidden scrollbar-hide scroll-smooth"
       >
         {movies.map((movie) => (
-          <div
+          <Link
             key={movie.id}
+            to={`movies/${movie.id}`} // dynamic route
             className="min-w-[200px] bg-gray-900 rounded-2xl shadow-lg overflow-hidden flex-shrink-0 hover:scale-105 transition-transform"
           >
             {/* Poster */}
@@ -56,7 +58,7 @@ const MoviesRow = ({ movies }) => {
               alt={movie.title}
               className="w-full h-72 object-cover"
             />
-          </div>
+          </Link>
         ))}
       </div>
     </section>

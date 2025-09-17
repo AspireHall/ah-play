@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HeroSection from "../components/Layout/HeroSection";
 import MoviesRow from "../components/Layout/MoviesRow";
 import ShowsRow from "../components/Layout/ShowsRow";
+import PlatformRow from "../components/Layout/PlatformRow";
 import {
   useGetTopRatedMoviesQuery,
   useGetTopRatedShowsQuery,
@@ -77,6 +78,7 @@ const HomePage = () => {
 
       {/* Footer / Extra space */}
       <div className="h-24" />
+      <PlatformRow />
     </div>
   );
 };

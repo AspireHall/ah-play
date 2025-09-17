@@ -41,7 +41,7 @@ const ShowsRow = ({ shows }) => {
       {/* show Row */}
       <div
         ref={sliderRef}
-        className="flex space-x-4 overflow-x-hidden scrollbar-hide scroll-smooth"
+        className="flex py-2 space-x-4 overflow-x-hidden scrollbar-hide scroll-smooth"
       >
         {shows.map((show) => (
           <div
