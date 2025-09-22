@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
+import { Link } from "react-router";
+import ReactPlayer from "react-player";
+import React from "react";
 
 const IMG_BASE = "https://image.tmdb.org/t/p/original";
 
@@ -18,7 +21,7 @@ const HeroSection = ({ movie }) => {
   } = movie;
 
   return (
-    <section className="relative w-full h-[80vh] text-white">
+    <section className="relative w-full h-full py-[100px] text-white">
       {/* Background Backdrop */}
       <div className="absolute inset-0">
         <img
@@ -26,6 +29,7 @@ const HeroSection = ({ movie }) => {
           alt={title}
           className="w-full h-full object-cover"
         />
+
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
       </div>
@@ -36,13 +40,13 @@ const HeroSection = ({ movie }) => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row items-center md:items-start gap-8"
+          className="flex flex-col md:flex-row mt-[100px] items-center md:items-start gap-8"
         >
           {/* Poster */}
           <img
             src={`${IMG_BASE}${poster_path}`}
             alt={title}
-            className="w-48 md:w-64 rounded-2xl shadow-lg"
+            className="w-48 md:w-64 rounded-2xl  shadow-lg"
           />
 
           {/* Info */}
@@ -69,12 +73,11 @@ const HeroSection = ({ movie }) => {
 
             {/* CTA Buttons */}
             <div className="flex gap-4 mt-4">
-              <button className="px-5 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition">
-                ▶ Watch Now
-              </button>
-              <button className="px-5 py-2 bg-gray-700 hover:bg-gray-800 rounded-lg font-medium transition">
-                + Add to List
-              </button>
+              <Link to={`/movies/${movie.id}`}>
+                <button className="px-5 py-2 hover:!border-amber-50 border rounded-lg font-medium transition">
+                  ▶ Watch Now
+                </button>
+              </Link>
             </div>
           </div>
         </motion.div>

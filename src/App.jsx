@@ -10,6 +10,7 @@ import {
   StudiosPage,
   ActorsPage,
 } from "./pages/index";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
@@ -18,11 +19,13 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:id" element={<MovieDetails />} />
         <Route path="/shows" element={<ShowsPage />} />
         <Route path="/platforms" element={<PlatformsPage />} />
         <Route path="/studios" element={<StudiosPage />} />
         <Route path="/actors" element={<ActorsPage />} />
       </Routes>
+
       <Footer />
     </div>
   );

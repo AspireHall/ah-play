@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
+import logo from "./../../assets/AHWhite.svg";
 import { motion, AnimatePresence } from "motion/react";
 
 const Navbar = () => {
@@ -11,7 +12,6 @@ const Navbar = () => {
     { name: "Movies", path: "/movies" },
     { name: "Shows", path: "/shows" },
     { name: "Platform", path: "/platform" },
-    { name: "Studio", path: "/studio" },
     { name: "Actors", path: "/actors" },
   ];
 
@@ -25,10 +25,10 @@ const Navbar = () => {
             className="text-2xl font-extrabold tracking-wide text-white flex items-center space-x-2"
           >
             <span role="img" aria-label="logo">
-              🎬
+              <img className="w-[50px] h-[50px]" src={logo} alt="AH" />
             </span>
-            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              AH Play
+            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-bold ">
+              PLAY
             </span>
           </Link>
 

@@ -1,23 +1,22 @@
 import React from "react";
 import { Link } from "react-router";
+import logo from "./../../assets/AHWhite.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900  text-gray-300 py-10 pt-50">
+    <footer className="bg-slate-950 w-full  text-gray-300 py-10 pt-[30px]">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-6 gap-8">
         {/* Logo + Description */}
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center space-x-2 mb-4">
-            <img
-              src="/logo.png" // replace with your actual logo path
-              alt="MovieApp Logo"
-              className="h-10 w-10"
-            />
-            <span className="text-xl font-bold text-white">MovieApp</span>
+            <img src={logo} alt="MovieApp Logo" className="h-40 w-40" />
+            <span className="text-xl font-bold text-white">
+              Aspire Hall Play
+            </span>
           </Link>
           <p className="text-sm text-gray-400 leading-relaxed">
-            Your go-to platform for movies, shows, studios, and actors. Stream,
-            explore, and enjoy entertainment anytime, anywhere.
+            Information platform for movies, shows, and actors. Know where to
+            stream, explore, and enjoy entertainment anytime, anywhere.
           </p>
         </div>
 

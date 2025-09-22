@@ -20,18 +20,18 @@ export const tmdbApi = createApi({
       query: () => "/tv/top_rated",
     }),
     getMovies: builder.query({
-      query: ({ year, sortBy, genre, rating, platform }) => {
+      query: ({ year, sortBy, genre, rating, platform, page }) => {
         const params = new URLSearchParams({
           include_adult: "false",
           include_video: "false",
           language: "en-US",
-          page: "1",
           watch_region: "US", // always filter by US providers
         });
 
         if (sortBy) params.append("sort_by", sortBy);
         if (rating) params.append("vote_average.gte", rating);
         if (year) params.append("year", year);
+        if (page) params.append("page", page);
 
         // Only append genre if it's provided (non-empty)
         if (genre) params.append("with_genres", genre);
@@ -42,6 +42,13 @@ export const tmdbApi = createApi({
         return `/discover/movie?${params.toString()}`;
       },
     }),
+    getMovieById: builder.query({
+      query: (id) => `/movie/${id}?append_to_response=credits,videos`,
+    }),
+    getWatchProviders: builder.query({
+      query: (id) => `/movie/${id}/watch/providers`,
+      transformResponse: (response) => response.results?.US ?? null,
+    }),
   }),
 });
 
@@ -49,4 +56,6 @@ export const {
   useGetTopRatedMoviesQuery,
   useGetTopRatedShowsQuery,
   useGetMoviesQuery,
+  useGetMovieByIdQuery,
+  useGetWatchProvidersQuery,
 } = tmdbApi;

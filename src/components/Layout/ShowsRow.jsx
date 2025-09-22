@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import ButtonScrollRight from "../Ui/ButtonScrollRight";
+import ButtonScrollLeft from "../Ui/ButtonScrollLeft";
 
 const IMG_BASE = "https://image.tmdb.org/t/p/w300";
 
@@ -20,23 +21,13 @@ const ShowsRow = ({ shows }) => {
   return (
     <section className="relative px-6 py-8">
       {/* Section Title */}
-      <h2 className="text-2xl font-bold text-white mb-4">⭐ Top Rated shows</h2>
+      {/*<h2 className="text-2xl font-bold text-white mb-4"> Top Rated shows</h2> */}
 
       {/* Left Arrow */}
-      <button
-        onClick={() => scroll("left")}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full z-10"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
+      <ButtonScrollLeft onClick={() => scroll("left")} />
 
       {/* Right Arrow */}
-      <button
-        onClick={() => scroll("right")}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full z-10"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
+      <ButtonScrollRight onClick={() => scroll("right")} />
 
       {/* show Row */}
       <div
